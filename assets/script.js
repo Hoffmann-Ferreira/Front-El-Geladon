@@ -1,14 +1,14 @@
 // const fetch = require ("cross-fetch");
-import fetch from "cross-fetch";
+// import fetch from "cross-fetch";
 
  async function listarTodasAsPaletas() {
     const response = await fetch("http://localhost:3005/paletas/lista-todas/");
     
     const paletas = await response.json();
 
-    paletas.forEach((element) =>{
+    paletas.forEach(function (element) {
       
-       document.querySelector("#paletaList").innerHTML(
+      document.querySelector("#paletaList").insertAdjacentHTML(
           "beforeend",
            `<div class= "paletaListaItem">
                 <div>
