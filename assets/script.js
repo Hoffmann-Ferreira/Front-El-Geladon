@@ -1,5 +1,3 @@
-// const fetch = require ("cross-fetch");
-// import fetch from "cross-fetch";
 
  async function listarTodasAsPaletas() {
     const response = await fetch("http://localhost:3005/paletas/lista-todas/");
