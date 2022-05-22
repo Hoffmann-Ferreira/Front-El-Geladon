@@ -1,6 +1,6 @@
 
  async function listarTodasAsPaletas() {
-    const response = await fetch("http://localhost:3005/paletas/lista-todas/");
+    const response = await fetch("http://localhost:3005/paletas/listar-todas/");
     
     const paletas = await response.json();
 
