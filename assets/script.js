@@ -134,13 +134,14 @@ const atualizarPaleta = async (id) => {
   return paletaAtualizada;
 };
 
-// função confirmação
+// função confirmação de exclusão
 
 const confirmarExclusao = (id) => {
-  document.querySelector(".Confirmacao").innerHTML = ` <div>
-   <p> Tem certeza?</p>
-   <button onclick="exlcuirPaleta(${id})">Sim</button>
-   <button onclick="retornar()">Não</button>
+  document.querySelector(".Confirmacao").innerHTML = ` 
+   <div class="exclusao">
+    <p> Tem certeza?</p>
+    <button onclick="exlcuirPaleta(${id})">Sim</button>
+    <button onclick="retornar()">Não</button>
    </div>`;
 };
 
@@ -172,7 +173,7 @@ const imprimirTodasAsPaletas = async () => {
   paletas.forEach(function (element) {
     document.querySelector("#paletaList").insertAdjacentHTML(
       "beforeend",
-      `<div class= "paletaListaItem">
+      `<div class= "PaletaListaItem">
                       <div>
                          <div class ="PaletaListaItem__sabor"> ${
                            element.sabor
@@ -187,10 +188,10 @@ const imprimirTodasAsPaletas = async () => {
                       <img class ="PaletaListaItem__foto" src=${
                         element.foto
                       } alt=${element.sabor}/>
-                      <button onclick="formularioAtualizar(${
+                      <button class="botaoCard" onclick="formularioAtualizar(${
                         element.id
                       })">Editar</button>
-                      <button onclick="confirmarExclusao(${
+                      <button class="botaoCard" onclick="confirmarExclusao(${
                         element.id
                       })">Excluir</button>
                  </div>`

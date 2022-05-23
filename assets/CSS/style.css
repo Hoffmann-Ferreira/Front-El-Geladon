@@ -87,7 +87,6 @@ header #cabecalho h1{
   text-align: center;
   border: none;
   font-family: 'Rye', cursive;
-
 }
 .Home  .PesquisarPaleta__container  button{
   background-color: #EE3E80;
@@ -98,6 +97,7 @@ header #cabecalho h1{
   font-family: 'Rye', cursive;
 }
 
+/* Card de paletas */
 
 .Home > div {
   display: flex;
@@ -109,6 +109,25 @@ header #cabecalho h1{
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.Home .Home__container .PaletaListaItem{
+  background-color: #eff2fbb0;
+  border-radius: 20px;
+  padding: 1%;
+  margin-top: 2%;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.3);
+  justify-content: space-around;
+}
+
+.Home .Home__container .botaoCard {
+  background-color: #EE3E80;
+  width: 30%;
+  margin-left: 30%;
+  border-radius: 20px;
+  font-family: 'Rye', cursive;
 }
 
 @media (max-width: 350px) {
@@ -135,56 +154,85 @@ header #cabecalho h1{
   }
 }
 
-.PaletaCardItem,
-.PaletaListaItem {
-  font-family: 'Exo';
+
+/* .PaletaListaItem {
   background: rgba(255, 255, 255, 0.3);
   border-radius: 10px;
   padding: 10px;
   width: 315px;
   display: flex;
   justify-content: space-around;
-}
+} */
 
-.PaletaCardItem {
+
+
+/* .PaletaCardItem {
   margin: 20px 0;
   height: 150px;
   width: auto;
-}
+} */
 
 @media (max-width: 400px) {
-  .PaletaCardItem,
+  
   .PaletaListaItem {
     width: 210px;
     height: 180px;
   }
 }
 
-.PaletaCardItem > div,
+
 .PaletaListaItem > div {
   display: flex;
   justify-content: space-between;
   flex-direction: column;
 }
 
-.PaletaCardItem__sabor,
+
 .PaletaListaItem__sabor {
+  text-align: center;
   font-size: 1.5em;
   font-weight: 700;
   line-height: 100%;
 }
 
-.PaletaCardItem__descricao,
+
 .PaletaListaItem__descricao {
-  font-size: 0.85em;
+  font-size: 1em;
 }
 
-.PaletaCardItem__preco,
+
 .PaletaListaItem__preco {
-  color: darkviolet;
+  color: #EE3E80;
+  font-size: 1em;
+  margin-top: 5%;
+  margin-bottom: 5%;
 }
 
 .PaletaListaItem__foto {
-  height: 150px;
-  margin-right: -60px;
+  /* height: 40%; */
+  width: 30%;
+margin-left: 30%;
+}
+
+/* Card Excluir paleta */
+
+.Home .exclusao{
+  background-color: #EE3E80;
+  border-radius: 20px;
+  padding: 1%;
+  width: 15%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+
+}
+
+.Home .exclusao button{
+  background-color: #FFFFFF;
+  width: 30%;
+  border-radius: 20px;
+  font-family: 'Rye', cursive;
+
 }
