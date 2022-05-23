@@ -254,7 +254,7 @@ const imprimirUmaPaletaPorId = async () => {
        <div class="CartaoPaleta">
          <div class="CartaoPaleta__infos">
            <h4>${paleta.sabor}</h4>
-           <span>R$${paleta.preco.toFixed(2)}</span>
+           <span>R$${parseFloat(paleta.preco).toFixed(2)}</span>
            <p>${paleta.descricao}</p>
          </div>
          <img src="./${paleta.foto}" alt="Paleta sabor ${

@@ -5,30 +5,46 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" type="text/css" href="./assets/CSS/style.css"/>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rye&display=swap" rel="stylesheet">
     <title>El Geladon</title>
 </head>
 <body>
+    <header>
+        <div id="cabecalho">
+            <img src="./assets/icon/logo.svg" alt="Logo El-geladon" class="geladon">
+            <h1>EL Geladon</h1>
+            <img src="./assets/icon/sacola.png" alt="Logo sacola de compras">
+        </div>
+    </header>
+
+    <main>
     <div class="Home">
 
-        <h2>Paletas Disponíveis:</h2>
-        <h2>Pesquisar Paleta</h2>
+    <h2>Pesquisar Paleta</h2>
     <div class="PesquisarPaleta">
         <div class="PesquisarPaleta__container">
+
             <input
-            type="number"
-            id="inputIdPaleta"
-            placeholder="Digite o ID da Paleta e clique em escolher"
+                type="number"
+                id="inputIdPaleta"
+                placeholder="Digite o ID da Paleta e clique em escolher"
             />
             <button onclick="imprimirUmaPaletaPorId()">Escolher</button>
-            <div class="PaletaPesquisada" id="paletaPesquisada"></div>
-        </div>
+        <div class="PaletaPesquisada" id="paletaPesquisada"></div>
     </div>
+
+
+    </div>
+    <h2 class="">Paletas Disponíveis:</h2>
         <div class="Home__container">
         <div class="PaletaLista" id="paletaList"></div>
         </div>
         <div class="Confirmacao"></div>
     </div>
-    
+</main>
+
     <script src="./assets/script.js"></script>
 </body>
 </html>
