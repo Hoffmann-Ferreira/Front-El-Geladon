@@ -7,12 +7,14 @@ Módulos utilizados:
 *JavaScript
 *CSS
 *HTML
+*NODEMON
 
 
 <div style="display: flex;" style="gap: 10;">
 
 <img src="https://raw.githubusercontent.com/tomchen/stack-icons/634d5c036a2a7ca0115c94ab2ce86c7e79e01e13/logos/javascript.svg" height="150" width="150"/>
 
+<img src="https://raw.githubusercontent.com/tomchen/stack-icons/634d5c036a2a7ca0115c94ab2ce86c7e79e01e13/logos/nodemon.svg" height="150" width="150"/>
 
 <img src="https://img.icons8.com/color/144/000000/css3.png" height="150" width="150"/>
 
