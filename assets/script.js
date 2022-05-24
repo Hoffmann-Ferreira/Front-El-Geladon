@@ -1,26 +1,3 @@
-//  async function listarTodasAsPaletas() {
-//     const response = await fetch("http://localhost:3005/paletas/listar-todas/");
-
-//     const paletas = await response.json();
-
-//     paletas.forEach(function (element) {
-
-//       document.querySelector("#paletaList").insertAdjacentHTML(
-//           "beforeend",
-//            `<div class= "paletaListaItem">
-//                 <div>
-//                    <div class ="PaletaListaItem__sabor"> ${element.sabor} </div>
-//                    <div class ="PaletaListaItem__preco"> R$ ${parseFloat(element.preco).toFixed(2)} </div>
-//                    <div class ="PaletaListaItem__descricao"> ${element.descricao} </div>
-//                 </div>
-//                 <img class ="PaletaListaItem__foto" src=${element.foto} alt=${element.sabor}/>
-//            </div>`
-//        );
-//    });
-// };
-
-// listarTodasAsPaletas();
-
 //variáveis auxiliares
 
 const baseUrl = "http://localhost:3005";
@@ -201,39 +178,7 @@ const imprimirTodasAsPaletas = async () => {
 
 imprimirTodasAsPaletas();
 
-//Botão
-// const ImprimirUmaPaletaPorId = async () => {
-
-//    document.getElementById("paletaPesquisada").innerHTML = "";
-
-//    const input = document.getElementById("inputIdPaleta");
-//    const id = input.value;
-
-//    const paleta = await buscarPaletasPorId(id);
-
-//    if (paleta === false) {
-//       const mensagemDeErro = document.createElement("p");
-//       mensagemDeErro.id = "mensagemDeErro";
-//       mensagemDeErro.classList.add("MensagemDeErro");
-//       mensagemDeErro.innerText = "Nenhuma paleta encontrada";
-
-//       document.getElementById("paletaPesquisada").appendChild(mensagemDeErro);
-//    } else {
-
-//    document.getElementById("paletaPesquisada").innerHTML =
-//    `
-//    <div class= "paletaListaItem">
-//                       <div>
-//                          <div class ="PaletaListaItem__sabor"> ${paleta.sabor} </div>
-//                          <div class ="PaletaListaItem__preco"> R$ ${parseFloat(paleta.preco).toFixed(2)} </div>
-//                          <div class ="PaletaListaItem__descricao"> ${paleta.descricao} </div>
-//                       </div>
-//                       <img class ="PaletaListaItem__foto" src=${paleta.foto} alt=${paleta.sabor}/>
-//                  </div>
-//    `;
-//    };
-
-// };
+//Pesquisar uma paleta por ID
 
 const imprimirUmaPaletaPorId = async () => {
   document.getElementById("paletaPesquisada").innerHTML = "";
