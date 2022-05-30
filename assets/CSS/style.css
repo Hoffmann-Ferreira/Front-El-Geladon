@@ -120,8 +120,7 @@ header #cabecalho h1 {
 }
 /* Formulários cadastro e edição pelatas */
 .Home .fundo-modal{
-  height: 18vw;
-  /*display: flex;*/
+  height: auto;
   justify-content: center;
   margin-top: 1%;
   
@@ -230,6 +229,7 @@ header #cabecalho h1 {
   margin-left: 30%;
 }
 
+
 /* Card Excluir paleta */
 
 .Home .exclusao {
@@ -304,6 +304,10 @@ header #cabecalho h1 {
   header .geladon {
     width: 15%;
   }
+  .Home .fundo-modal{
+    height: 60vw;
+    margin-bottom: 20%;
+  }
 }
 
 @media (max-width: 840px) {
@@ -318,5 +322,10 @@ header #cabecalho h1 {
   }
   .Home > h2 {
     font-size: 1.5em;
+  }
+  .Home .fundo-modal #botaoCriar, #botaoAtualizar{
+    width: 50%;
+    font-size: auto;
+    margin-left: 28%;
   }
 }

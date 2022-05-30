@@ -55,7 +55,7 @@ const formularioCriar = async () => {
             <input type= "number" id="preco" class= "preco" placeholder = "Preço" required/>
 
          </feldset>
-         <button id= "botaoCriar">Salvar Paleton</button>
+         <button id= "botaoCriar"> Salvar </button>
       </form>
 
    </div>`;
@@ -241,10 +241,10 @@ const imprimirTodasAsPaletas = async () => {
                          <div class ="PaletaListaItem__descricao"> ${
                            element.descricao
                          } </div>
-                      </div>
                       <img class ="PaletaListaItem__foto" src=${
                         element.foto
                       } alt=${element.sabor}/>
+                      <div class = "botoesCard">
                       <button class="botaoCard" onclick="formularioAtualizar('${
                         element._id
                       }')">Editar</button>
