@@ -56,16 +56,17 @@ const formularioCriar = async () => {
 
          </feldset>
          <button id= "botaoCriar"> Salvar </button>
+         <button id= "botaoCriar" onclick="retornar()">Voltar</button>
       </form>
 
    </div>`;
 
-   window.scroll({
-    top: 0, 
-    left: 0, 
-    behavior: 'smooth' 
-   });
-   
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
+
   const botaoCriar = document.getElementById("botaoCriar");
   //botão para chamar o put para atualizar
   botaoCriar.addEventListener("click", async () => {
@@ -79,11 +80,10 @@ const formularioCriar = async () => {
     esconderModalEdicao();
     imprimirTodasAsPaletas();
   });
-
 };
 
 // função criar paleta
-async function criarPaleta (sabor, descricao, foto, preco) {
+async function criarPaleta(sabor, descricao, foto, preco) {
   const paleta = {
     sabor,
     descricao,
@@ -103,7 +103,7 @@ async function criarPaleta (sabor, descricao, foto, preco) {
   const novaPaleta = await resposta.json();
 
   return novaPaleta;
-};
+}
 // funcao que vai renderizar na tela o formulário para a pessoa poder digitar novamente os dados
 
 const formularioAtualizar = async (id) => {
@@ -111,7 +111,6 @@ const formularioAtualizar = async (id) => {
   document.getElementById("atualizar").style.display = "flex";
   const paleta = listaDePaletas.find((elemento) => elemento._id === id);
 
-  
   document.querySelector("#atualizar").innerHTML = `
    <div class = "fomrulario">
       <form>
@@ -132,15 +131,16 @@ const formularioAtualizar = async (id) => {
 
          </feldset>
          <button id= "botaoAtualizar">Atualizar</button>
+         <button id= "botaoAtualizar" onclick="retornar()">Voltar</button>
       </form>
 
    </div>`;
 
-   window.scroll({
-    top: 0, 
-    left: 0, 
-    behavior: 'smooth' 
-   });
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
 
   document.getElementById("sabor").value = paleta.sabor;
   document.getElementById("preco").value = paleta.preco;
@@ -159,24 +159,23 @@ const formularioAtualizar = async (id) => {
     esconderModalEdicao();
     imprimirTodasAsPaletas();
   });
-
 };
 
-// esconder formulário de atualização 
+// esconder formulário de atualização
 const esconderModalEdicao = () => {
   document.getElementById("atualizar").style.display = "none";
 };
 
 //Atualizar paleta
 async function atualizarPaleta(id, sabor, descricao, foto, preco) {
-  console.log("entrei")
+  console.log("entrei");
   const paleta = {
     sabor,
     descricao,
     foto,
     preco,
   };
-console.log(paleta)
+  console.log(paleta);
   const resposta = await fetch(`${baseUrl}/paletas/atualizar-paleta/${id}`, {
     method: "PUT",
     headers: {
@@ -189,18 +188,23 @@ console.log(paleta)
   const paletaAtualizada = await resposta.json();
 
   return paletaAtualizada;
-};
+}
 
 // função confirmação de exclusão
 
 const confirmarExclusao = (id) => {
-  console.log(id)
+  console.log(id);
   document.querySelector(".Confirmacao").innerHTML = ` 
    <div class="exclusao">
     <p> Tem certeza?</p>
     <button onclick="exlcuirPaleta('${id}')">Sim</button>
     <button onclick="retornar()">Não</button>
    </div>`;
+  window.scroll({
+    top: 0,
+    left: 0,
+    behavior: "smooth",
+  });
 };
 
 // retornar para a página inicial

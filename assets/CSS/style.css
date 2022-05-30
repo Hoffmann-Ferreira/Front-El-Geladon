@@ -95,7 +95,7 @@ header #cabecalho h1 {
   font-family: "Rye", cursive;
 }
 
-.Home .escondido{
+.Home .escondido {
   display: none;
 }
 
@@ -103,27 +103,24 @@ header #cabecalho h1 {
   display: none;
 }
 /* Cadastrar paletas */
-.Home .CadastrarPaleta{
-
+.Home .CadastrarPaleta {
   display: flex;
   justify-content: flex-end;
   width: 80%;
   margin-top: 1%;
-  }
+}
 
-.Home #cadastrarPaleta{
+.Home #cadastrarPaleta {
   background-color: #ee3e80;
   border-radius: 20px;
   padding: 5px;
   font-family: "Rye", cursive;
-
 }
 /* Formulários cadastro e edição pelatas */
-.Home .fundo-modal{
+.Home .fundo-modal {
   height: auto;
   justify-content: center;
   margin-top: 1%;
-  
 }
 
 .Home .fundo-modal .fomrulario {
@@ -133,7 +130,6 @@ header #cabecalho h1 {
   display: flex;
   flex-direction: column;
   width: 50%;
-
 }
 
 .Home .fundo-modal .fomularioItens {
@@ -142,14 +138,15 @@ header #cabecalho h1 {
   justify-content: center;
 }
 
-.Home .fundo-modal .fomularioItens input{
+.Home .fundo-modal .fomularioItens input {
   border-radius: 10px;
   border: none;
   padding: 0.5%;
   color: #000000;
   background-color: #ee3e7fbb;
-} 
-.Home .fundo-modal #botaoCriar, #botaoAtualizar{
+}
+.Home .fundo-modal #botaoCriar,
+#botaoAtualizar {
   background-color: #ee3e80;
   width: 30%;
   margin-left: 35%;
@@ -157,7 +154,6 @@ header #cabecalho h1 {
   font-family: "Rye", cursive;
   padding: 0.5%;
   margin-top: 1%;
-
 }
 
 /* Card de paletas */
@@ -228,7 +224,6 @@ header #cabecalho h1 {
   width: 30%;
   margin-left: 30%;
 }
-
 
 /* Card Excluir paleta */
 
@@ -304,7 +299,7 @@ header #cabecalho h1 {
   header .geladon {
     width: 15%;
   }
-  .Home .fundo-modal{
+  .Home .fundo-modal {
     height: 60vw;
     margin-bottom: 20%;
   }
@@ -323,7 +318,8 @@ header #cabecalho h1 {
   .Home > h2 {
     font-size: 1.5em;
   }
-  .Home .fundo-modal #botaoCriar, #botaoAtualizar{
+  .Home .fundo-modal #botaoCriar,
+  #botaoAtualizar {
     width: 50%;
     font-size: auto;
     margin-left: 28%;

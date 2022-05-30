@@ -30,7 +30,9 @@
     <main>
       <div class="Home">
         <div class="CadastrarPaleta">
-          <button onclick=formularioCriar() id="cadastrarPaleta">Cadastrar paleta</button>
+          <button onclick="formularioCriar()" id="cadastrarPaleta">
+            Cadastrar paleta
+          </button>
         </div>
         <h2>Pesquisar Paleta</h2>
         <div class="PesquisarPaleta">
@@ -40,7 +42,9 @@
               placeholder="Digite o sabor da paleta"
             />
             <button onclick="imprimirUmaPaletaPorId()">Escolher</button>
-            <button class="remover escondido" onclick="retornar()">Voltar</button>
+            <button class="remover escondido" onclick="retornar()">
+              Voltar
+            </button>
             <div class="PaletaPesquisada" id="paletaPesquisada"></div>
           </div>
         </div>
@@ -53,7 +57,6 @@
           <div class="PaletaLista" id="paletaList"></div>
         </div>
       </div>
-
     </main>
 
     <script src="./assets/script.js"></script>
