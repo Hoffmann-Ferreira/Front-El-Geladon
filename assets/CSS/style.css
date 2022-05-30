@@ -95,6 +95,72 @@ header #cabecalho h1 {
   font-family: "Rye", cursive;
 }
 
+.Home .escondido{
+  display: none;
+}
+
+.Home .fundo-modal .escondido {
+  display: none;
+}
+/* Cadastrar paletas */
+.Home .CadastrarPaleta{
+
+  display: flex;
+  justify-content: flex-end;
+  width: 80%;
+  margin-top: 1%;
+  }
+
+.Home #cadastrarPaleta{
+  background-color: #ee3e80;
+  border-radius: 20px;
+  padding: 5px;
+  font-family: "Rye", cursive;
+
+}
+/* Formulários cadastro e edição pelatas */
+.Home .fundo-modal{
+  height: 18vw;
+  /*display: flex;*/
+  justify-content: center;
+  margin-top: 1%;
+  
+}
+
+.Home .fundo-modal .fomrulario {
+  padding: 1%;
+  background-color: #eff2fbb0;
+  border-radius: 10px;
+  display: flex;
+  flex-direction: column;
+  width: 50%;
+
+}
+
+.Home .fundo-modal .fomularioItens {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Home .fundo-modal .fomularioItens input{
+  border-radius: 10px;
+  border: none;
+  padding: 0.5%;
+  color: #000000;
+  background-color: #ee3e7fbb;
+} 
+.Home .fundo-modal #botaoCriar, #botaoAtualizar{
+  background-color: #ee3e80;
+  width: 30%;
+  margin-left: 35%;
+  border-radius: 20px;
+  font-family: "Rye", cursive;
+  padding: 0.5%;
+  margin-top: 1%;
+
+}
+
 /* Card de paletas */
 
 .Home > div {

@@ -1,5 +1,7 @@
 //variáveis auxiliares
 
+let listaDePaletas = [];
+
 const baseUrl = "http://localhost:3005";
 
 //requisições:
@@ -10,6 +12,8 @@ const buscarTodasAsPaletas = async () => {
 
   const paletas = await resposta.json();
 
+  listaDePaletas = paletas;
+
   return paletas;
 };
 
@@ -18,6 +22,8 @@ const buscarTodasAsPaletas = async () => {
 const buscarPaletasPorId = async (id) => {
   const resposta = await fetch(`${baseUrl}/paletas/paleta/${id}`);
 
+  console.log(resposta);
+
   const paleta = await resposta.json();
 
   return paleta;
@@ -25,7 +31,59 @@ const buscarPaletasPorId = async (id) => {
 
 //Criar Paleta;
 
-const CriarPaleta = async (sabor, descricao, foto, preco) => {
+//fomulario paleta
+
+const formularioCriar = async () => {
+  document.querySelector("#criar").classList.remove("escondido");
+  document.getElementById("criar").style.display = "flex";
+  document.querySelector("#criar").innerHTML = `
+   <div class = "fomrulario">
+      <form>
+         <feldset class = "fomularioItens">
+            <legend>Criar Paleta</legend>
+
+            <label for= "sabor">Sabor:</label>
+            <input type= "text" id="sabor" class= "sabor" placeholder = "Sabor" required/>
+
+            <label for= "descricao">Descrição:</label>
+            <input type= "text" id="descricao" class="descricao" placeholder = "Descrição" required/>
+
+            <label for= "foto">Foto:</label>
+            <input type= "url" id="foto" class="foto" placeholder = "URL da Foto" required/>
+
+            <label for= "preco">Preço:</label>
+            <input type= "number" id="preco" class= "preco" placeholder = "Preço" required/>
+
+         </feldset>
+         <button id= "botaoCriar">Salvar Paleton</button>
+      </form>
+
+   </div>`;
+
+   window.scroll({
+    top: 0, 
+    left: 0, 
+    behavior: 'smooth' 
+   });
+   
+  const botaoCriar = document.getElementById("botaoCriar");
+  //botão para chamar o put para atualizar
+  botaoCriar.addEventListener("click", async () => {
+    const sabor = document.getElementById("sabor").value;
+    const preco = document.getElementById("preco").value;
+    const descricao = document.getElementById("descricao").value;
+    const foto = document.getElementById("foto").value;
+
+    await criarPaleta(sabor, descricao, foto, preco);
+
+    esconderModalEdicao();
+    imprimirTodasAsPaletas();
+  });
+
+};
+
+// função criar paleta
+async function criarPaleta (sabor, descricao, foto, preco) {
   const paleta = {
     sabor,
     descricao,
@@ -49,54 +107,76 @@ const CriarPaleta = async (sabor, descricao, foto, preco) => {
 // funcao que vai renderizar na tela o formulário para a pessoa poder digitar novamente os dados
 
 const formularioAtualizar = async (id) => {
+  document.querySelector("#atualizar").classList.remove("escondido");
+  document.getElementById("atualizar").style.display = "flex";
+  const paleta = listaDePaletas.find((elemento) => elemento._id === id);
+
+  
   document.querySelector("#atualizar").innerHTML = `
-   <div>
+   <div class = "fomrulario">
       <form>
-         <feldset>
+         <feldset class = "fomularioItens">
             <legend>Atualizar Paleta</legend>
 
             <label for= "sabor">Sabor:</label>
-            <input type= "text" id="sabor" name= "sabor" placeholder = "sabor" required/>
+            <input type= "text" id="sabor" class= "sabor" placeholder = "sabor" required/>
 
             <label for= "descricao">Descrição:</label>
-            <input type= "text" id="descricao" name= "descricao" required/>
+            <input type= "text" id="descricao" class="descricao" required/>
 
             <label for= "foto">Foto:</label>
-            <input type= "url" id="foto" name= "foto"/>
+            <input type= "url" id="foto" class="foto" required/>
 
             <label for= "preco">Preço:</label>
-            <input type= "number" id="preco" name= "preco" required/>
+            <input type= "number" id="preco" class= "preco" required/>
 
          </feldset>
-         <button onclick="atualizarPaleta(${id})">Atualizar</button>
+         <button id= "botaoAtualizar">Atualizar</button>
       </form>
 
    </div>`;
 
-  const paletaFiltro = await fetch(`${baseUrl}/paletas/paleta/${id}`);
+   window.scroll({
+    top: 0, 
+    left: 0, 
+    behavior: 'smooth' 
+   });
 
-  const paleta = await paletaFiltro.json();
-  paleta.length != 0
-    ? ((document.querySelector("#sabor").value = paleta.sabor),
-      (document.querySelector("#descricao").value = paleta.descricao),
-      (document.querySelector("#foto").value = paleta.foto),
-      (document.querySelector("#preco").value = paleta.preco))
-    : ((document.querySelector("#sabor").value = ""),
-      (document.querySelector("#descricao").value = ""),
-      (document.querySelector("#foto").value = ""),
-      (document.querySelector("#preco").value = 0));
+  document.getElementById("sabor").value = paleta.sabor;
+  document.getElementById("preco").value = paleta.preco;
+  document.getElementById("descricao").value = paleta.descricao;
+  document.getElementById("foto").value = paleta.foto;
+  const botaoAtualizar = document.getElementById("botaoAtualizar");
+  //botão para chamar o put para atualizar
+  botaoAtualizar.addEventListener("click", async () => {
+    const sabor = document.getElementById("sabor").value;
+    const preco = document.getElementById("preco").value;
+    const descricao = document.getElementById("descricao").value;
+    const foto = document.getElementById("foto").value;
+
+    await atualizarPaleta(id, sabor, descricao, foto, preco);
+
+    esconderModalEdicao();
+    imprimirTodasAsPaletas();
+  });
+
+};
+
+// esconder formulário de atualização 
+const esconderModalEdicao = () => {
+  document.getElementById("atualizar").style.display = "none";
 };
 
 //Atualizar paleta
-
-const atualizarPaleta = async (id) => {
+async function atualizarPaleta(id, sabor, descricao, foto, preco) {
+  console.log("entrei")
   const paleta = {
     sabor,
     descricao,
     foto,
     preco,
   };
-
+console.log(paleta)
   const resposta = await fetch(`${baseUrl}/paletas/atualizar-paleta/${id}`, {
     method: "PUT",
     headers: {
@@ -114,10 +194,11 @@ const atualizarPaleta = async (id) => {
 // função confirmação de exclusão
 
 const confirmarExclusao = (id) => {
+  console.log(id)
   document.querySelector(".Confirmacao").innerHTML = ` 
    <div class="exclusao">
     <p> Tem certeza?</p>
-    <button onclick="exlcuirPaleta(${id})">Sim</button>
+    <button onclick="exlcuirPaleta('${id}')">Sim</button>
     <button onclick="retornar()">Não</button>
    </div>`;
 };
@@ -133,9 +214,8 @@ const exlcuirPaleta = async (id) => {
     method: "DELETE",
     mode: "cors",
   });
-
-  if (resposta.status === 204) {
-    window.location.reload(true);
+  if (resposta.status === 200) {
+    retornar();
     return "Paleta Excluída com sucesso";
   } else {
     return "Paleta não encontrada";
@@ -165,12 +245,12 @@ const imprimirTodasAsPaletas = async () => {
                       <img class ="PaletaListaItem__foto" src=${
                         element.foto
                       } alt=${element.sabor}/>
-                      <button class="botaoCard" onclick="formularioAtualizar(${
-                        element.id
-                      })">Editar</button>
-                      <button class="botaoCard" onclick="confirmarExclusao(${
-                        element.id
-                      })">Excluir</button>
+                      <button class="botaoCard" onclick="formularioAtualizar('${
+                        element._id
+                      }')">Editar</button>
+                      <button class="botaoCard" onclick="confirmarExclusao('${
+                        element._id
+                      }')">Excluir</button>
                  </div>`
     );
   });
@@ -181,10 +261,14 @@ imprimirTodasAsPaletas();
 //Pesquisar uma paleta por ID
 
 const imprimirUmaPaletaPorId = async () => {
+  document.querySelector(".remover").classList.remove("escondido");
+
   document.getElementById("paletaPesquisada").innerHTML = "";
 
-  const input = document.getElementById("inputIdPaleta");
-  const id = input.value;
+  const input = document.getElementById("inputBuscaSaborPaleta");
+  const sabor = input.value;
+  const paletaSelecionada = listaDePaletas.find((elem) => elem.sabor === sabor);
+  const id = paletaSelecionada._id;
 
   const paleta = await buscarPaletasPorId(id);
 
@@ -203,7 +287,7 @@ const imprimirUmaPaletaPorId = async () => {
            <span>R$${parseFloat(paleta.preco).toFixed(2)}</span>
            <p>${paleta.descricao}</p>
          </div>
-         <img src="./${paleta.foto}" alt="Paleta sabor ${
+         <img src="${paleta.foto}" alt="Paleta sabor ${
       paleta.sabor
     }" class="CartaoPaleta__foto"/>
        </div>
