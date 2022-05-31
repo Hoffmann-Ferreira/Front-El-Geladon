@@ -36,6 +36,11 @@ const buscarPaletasPorId = async (id) => {
 const formularioCriar = async () => {
   document.querySelector("#criar").classList.remove("escondido");
   document.getElementById("criar").style.display = "flex";
+  /*  document.getElementById("sabor").value = "";
+  document.getElementById("preco").value = "";
+  document.getElementById("descricao").value = "";
+  document.getElementById("foto").value = ""; */
+
   document.querySelector("#criar").innerHTML = `
    <div class = "fomrulario">
       <form>
@@ -43,20 +48,20 @@ const formularioCriar = async () => {
             <legend>Criar Paleta</legend>
 
             <label for= "sabor">Sabor:</label>
-            <input type= "text" id="sabor" class= "sabor" placeholder = "Sabor" required/>
+            <input type= "text" id="saborC" class= "sabor" placeholder = "Sabor" required/>
 
             <label for= "descricao">Descrição:</label>
-            <input type= "text" id="descricao" class="descricao" placeholder = "Descrição" required/>
+            <input type= "text" id="descricaoC" class="descricao" placeholder = "Descrição" required/>
 
             <label for= "foto">Foto:</label>
-            <input type= "url" id="foto" class="foto" placeholder = "URL da Foto" required/>
+            <input type= "url" id="fotoC" class="foto" placeholder = "URL da Foto" required/>
 
             <label for= "preco">Preço:</label>
-            <input type= "number" id="preco" class= "preco" placeholder = "Preço" required/>
+            <input type= "number" id="precoC" class= "preco" placeholder = "Preço" required/>
 
          </feldset>
-         <button id= "botaoCriar"> Salvar </button>
-         <button id= "botaoCriar" onclick="retornar()">Voltar</button>
+         <button id= "botaoCriar" class = "botaoCriar"> Salvar </button>
+         <button class = "botaoCriar" onclick="retornar()">Voltar</button>
       </form>
 
    </div>`;
@@ -70,14 +75,14 @@ const formularioCriar = async () => {
   const botaoCriar = document.getElementById("botaoCriar");
   //botão para chamar o put para atualizar
   botaoCriar.addEventListener("click", async () => {
-    const sabor = document.getElementById("sabor").value;
-    const preco = document.getElementById("preco").value;
-    const descricao = document.getElementById("descricao").value;
-    const foto = document.getElementById("foto").value;
+    const sabor = document.getElementById("saborC").value;
+    const preco = document.getElementById("precoC").value;
+    const descricao = document.getElementById("descricaoC").value;
+    const foto = document.getElementById("fotoC").value;
 
     await criarPaleta(sabor, descricao, foto, preco);
 
-    esconderModalEdicao();
+    esconderModalCriacao();
     imprimirTodasAsPaletas();
   });
 };
@@ -130,8 +135,8 @@ const formularioAtualizar = async (id) => {
             <input type= "number" id="preco" class= "preco" required/>
 
          </feldset>
-         <button id= "botaoAtualizar">Atualizar</button>
-         <button id= "botaoAtualizar" onclick="retornar()">Voltar</button>
+         <button id= "botaoAtualizar" class = "botaoAtualizar">Atualizar</button>
+         <button class = "botaoAtualizar" onclick="retornar()">Voltar</button>
       </form>
 
    </div>`;
@@ -164,6 +169,10 @@ const formularioAtualizar = async (id) => {
 // esconder formulário de atualização
 const esconderModalEdicao = () => {
   document.getElementById("atualizar").style.display = "none";
+};
+
+const esconderModalCriacao = () => {
+  document.getElementById("criar").style.display = "none";
 };
 
 //Atualizar paleta
@@ -230,6 +239,7 @@ const exlcuirPaleta = async (id) => {
 
 const imprimirTodasAsPaletas = async () => {
   const paletas = await buscarTodasAsPaletas();
+  document.getElementById("paletaList").innerHTML = ``;
 
   paletas.forEach(function (element) {
     document.querySelector("#paletaList").insertAdjacentHTML(

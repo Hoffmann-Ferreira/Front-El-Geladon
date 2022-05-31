@@ -160,6 +160,17 @@ header #cabecalho h1 {
   margin-top: 1%;
 }
 
+.Home .fundo-modal .botaoCriar,
+.botaoAtualizar {
+  background-color: #ee3e80;
+  width: 30%;
+  margin-left: 35%;
+  border-radius: 20px;
+  font-family: "Rye", cursive;
+  padding: 0.5%;
+  margin-top: 1%;
+}
+
 /* Card de paletas */
 
 .Home > div {
@@ -322,8 +333,8 @@ header #cabecalho h1 {
   .Home > h2 {
     font-size: 1.5em;
   }
-  .Home .fundo-modal #botaoCriar,
-  #botaoAtualizar {
+  .Home .fundo-modal .botaoCriar,
+  .botaoAtualizar {
     width: 50%;
     font-size: auto;
     margin-left: 28%;
